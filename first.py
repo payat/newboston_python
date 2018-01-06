@@ -19,7 +19,7 @@ for n in range(10, 40, 5):
         print(n)
 
 # for tutorial
-foods = ["nasi lemak", "roti canai", "durian", "cincaluk"]
+foods = ["nasi lemak", "roti canai", "durian", "cincaluk", "budu"]
 for f in foods:
     print(f)
     panjang = len(f)
