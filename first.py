@@ -102,5 +102,6 @@ functions.health_calculator(*payats_data)
 #functions.download_web_image("https://www.lowyat.net/wp-content/uploads/2016/02/logo-purple.png")
 
 # read & write file tutorial
-functions.write_to_file("data.txt")
-functions.read_file("data.txt")
+filename = "data.txt"
+functions.write_to_file(filename)
+functions.read_file(filename)
