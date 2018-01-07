@@ -1,3 +1,27 @@
+import random
+import urllib
+
+# download web image tutorial
+def download_web_image(url):
+    name = random.randrange(1, 1000)
+    full_filename = str(name) + ".png"
+    urllib.urlretrieve(url, full_filename)
+
+# read & write files tutorial
+def write_to_file(filename):
+    fw = open(filename, 'w')
+    fw.write('i ate too much durian. my breath stinks!!\n')
+    fw.write('will need to drink a lot of water')
+    fw.close()
+
+def read_file(filename):
+    fr = open(filename, 'r')
+    text = fr.read()
+    print(text)
+    fr.close()
+
+
+
 # functions tutorial
 def bitcoin_to_ringgit(btc):
     amount = btc * 547 * 4
@@ -18,6 +42,7 @@ def get_gender(sex="unknown"):
 
 
 # variable scope tutorial
+a = 123
 def scope_a():
     a = 444
     print(a)
@@ -40,31 +65,3 @@ def add_numbers(*args):
 def health_calculator(age, apples_ate, cigs_smoked):
     answer = (100-age) + (apples_ate * 3.5) - (cigs_smoked * 4)
     print(answer)
-
-bitcoin_to_ringgit(3.85)
-bitcoin_to_ringgit(3)
-bitcoin_to_ringgit(1)
-
-dude_limit = allowed_dating_age(37)
-print("Dude can date girls", dude_limit, "or older")
-
-get_gender("m")
-get_gender("f")
-get_gender("Q")
-get_gender()
-
-a = 123
-scope_a()
-scope_b()
-
-dumb_sentence()
-dumb_sentence(action="puke")
-dumb_sentence(action="loves", name="lutfi", item="nuna leaf")
-
-add_numbers(12)
-add_numbers(1,3,5,7,11,13)
-
-payats_data = [37, 2, 1]
-health_calculator(payats_data[0], payats_data[1], payats_data[2])
-
-health_calculator(*payats_data)
