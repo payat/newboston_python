@@ -1,11 +1,60 @@
 import random
-import urllib
+# in mac
+# import urllib
+# in windows
+import urllib.request
+import requests
+from bs4 import BeautifulSoup
+# from urllib import request
+
+# webcrawler tutorial
+def otakit_spider(max_pages):
+    page = 1
+    while page <= max_pages:
+        url = r'https://otakit.my/page/' + str(page)
+        source_code = requests.get(url)
+        plain_text = source_code.text
+        soup = BeautifulSoup(plain_text, "html.parser")
+        for link in soup.find_all('a', {'rel': 'bookmark', 'itemprop': 'url'}):
+            href = link.get('href')
+            print(href)
+            #print(link.string)
+            get_news_item_data(href)
+        page += 1
+
+def get_news_item_data(item_url):
+    source_code = requests.get(item_url)
+    plain_text = source_code.text
+    soup = BeautifulSoup(plain_text, "html.parser")
+    for title in soup.find_all('title'):
+        print(title.string)
+    for link in soup.find_all('a'):
+        href = link.get('href')
+        print(href)
+
+
+# download file from web tutorial
+def download_stock_data(csv_url):
+    print(csv_url)
+    response = urllib.request.urlopen(csv_url)
+    csv = response.read()
+    csv_str = str(csv)
+    lines = csv_str.split("\\n")
+    dest_url = r'google.csv'
+    fx = open(dest_url, "w")
+    for line in lines:
+        fx.write(line + "\n")
+    fx.close
+
 
 # download web image tutorial
 def download_web_image(url):
     name = random.randrange(1, 1000)
     full_filename = str(name) + ".png"
-    urllib.urlretrieve(url, full_filename)
+    # in mac
+    # urllib.urlretrieve(url, full_filename)
+    # in windows
+    urllib.request.urlretrieve(url, full_filename)
 
 # read & write files tutorial
 def write_to_file(filename):

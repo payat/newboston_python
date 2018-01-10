@@ -1,6 +1,8 @@
 # import tutorial
 import functions
 import random
+
+'''
 random_num = random.randrange(1, 1000)
 print('random number', random_num)
 functions.add_numbers(21, 14, random_num)
@@ -27,13 +29,12 @@ for f in foods:
     print(len(f))
 
 # range, while & comments tutorial
-'''
 buttcrack = 5
 while buttcrack < 10:
     print("butts ", buttcrack)
     buttcrack += 1
 print("the end")
-'''
+
 
 # break tutorial
 magicnumber  = 7
@@ -99,9 +100,17 @@ functions.health_calculator(payats_data[0], payats_data[1], payats_data[2])
 functions.health_calculator(*payats_data)
 
 # download web image tutorial
-#functions.download_web_image("https://www.lowyat.net/wp-content/uploads/2016/02/logo-purple.png")
+functions.download_web_image("https://www.lowyat.net/wp-content/uploads/2016/02/logo-purple.png")
 
 # read & write file tutorial
 filename = "data.txt"
 functions.write_to_file(filename)
 functions.read_file(filename)
+
+# download file from web tutorial
+google_url = ("http://www.sample-videos.com/csv/Sample-Spreadsheet-1000-rows.csv")
+functions.download_stock_data(google_url)
+'''
+
+# webcrawler tutorial
+functions.otakit_spider(2)
