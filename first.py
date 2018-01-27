@@ -110,7 +110,51 @@ functions.read_file(filename)
 # download file from web tutorial
 google_url = ("http://www.sample-videos.com/csv/Sample-Spreadsheet-1000-rows.csv")
 functions.download_stock_data(google_url)
-'''
+
 
 # webcrawler tutorial
 functions.otakit_spider(2)
+
+
+# exception tutorial
+while True:
+    try:
+        number = int(input("What is your number dude?\n"))
+        print(16/number)
+        break
+    except ValueError:
+        print("Make sure enter numerical value")
+    except ZeroDivisionError:
+        print ("Don't pick zero")
+    except:
+        break
+    finally:
+        # execute no matter what
+        print("loop complete")
+
+
+# word frequency counter tutorial
+functions.start('https://otakit.my')
+
+# unpack list of tuples tutorial
+functions.drop_first_last([65, 76, 98, 54, 21])
+functions.drop_first_last([65, 76, 98, 54, 21, 65, 99, 88, 78])
+
+# zip tutorial
+first = (['Luqman', 'Aida', 'Lutfi'])
+last = (['Ahmad', 'Azlan', 'Luqman'])
+
+names = zip(first, last)
+
+for a, b in names:
+    print(a,b)
+
+# lambda tutorial
+answer = lambda x, y: x*7+y
+print(answer(7, 10))
+'''
+# mix, max & sorted dictionaries
+stocks = {'GOOG' : 520.54, 'FB' : 76.45, 'YHOO' : 39.28, 'AMZN' : 306.21, 'AAPL' : 99.76 }
+print(min(zip(stocks.values(), stocks.keys())))
+print(max(zip(stocks.values(), stocks.keys())))
+print(sorted(zip(stocks.keys(), stocks.values())))
